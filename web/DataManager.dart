@@ -63,6 +63,17 @@ class DataManager {
     cards.add(new Card("vav", "و", "vav", 1.0, 1.0, 1.0, ["letter"]));
     cards.add(new Card("he", "ﻩ", "he", 1.0, 1.0, 1.0, ["letter"]));
     cards.add(new Card("ye", "ﻯ", "ye", 1.0, 1.0, 1.0, ["letter"]));
+    
+    cards.add(new Card("0", "۰", "sefr", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("1", "۱", "yek", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("2", "۲", "do", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("3", "۳", "seh", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("4", "۴", "chahaar", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("5", "۵", "panj", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("6", "۶", "shesh", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("7", "۷", "haft", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("8", "۸", "hasht", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("9", "۹", "noh", 1.0, 1.0, 1.0, ["digit"]));
 
     cards.add(new Card("water", "آب", "ab", 1.0, 1.0, 1.0, ["noun", "food"]));
     cards.add(new Card("juice", "آبمیوه", "abmiveh", 1.0, 1.0, 1.0, ["noun", "food"]));
