@@ -1,0 +1,4 @@
+name: flashcards
+description: A web application for learning farsi.
+dependencies:
+  browser: any

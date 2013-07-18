@@ -1,0 +1,83 @@
+
+body {
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  font-weight: normal;
+  line-height: 1.2em;
+  margin: 15px;
+  text-align: center;
+}
+
+h1, p {
+  color: #333;
+}
+
+hr {
+  width: 20em;
+  border: 0;
+  color: black;
+  background-color: black;
+  height: 2px;
+  
+}
+
+table {
+  font-size: 0.75em;
+  margin: 0px auto; 
+}
+
+button {
+  color: white;
+  
+  font-size: 1em;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: bold;
+  
+  padding: 10px 15px;
+  border-radius: 3px;
+}
+
+button:active {
+   -moz-box-shadow:    inset 0 0 6px #333333;
+   -webkit-box-shadow: inset 0 0 6px #333333;
+   box-shadow:         inset 0 0 6px #333333;  
+}
+
+.blueButton {
+  background-color: #3278C7;
+  border: 2px solid #244E7D;
+}
+
+.blueButton:hover {
+  background-color: #2F6AAD;
+}
+
+.greenButton {
+  background-color: #32C750;
+  border: 2px solid #247D36;
+}
+
+.greenButton:hover {
+  background-color: #33BD4F;
+}
+
+.redButton {
+  background-color: #C73232;
+  border: 2px solid #7D2424;
+}
+
+.redButton:hover {
+  background-color: #AD2F2F;
+}
+
+
+#tags {
+  font-size: 1.0em;
+}
+
+#error {
+  color: white;
+  background-color: red;
+}
+
