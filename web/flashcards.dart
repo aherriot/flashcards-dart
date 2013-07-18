@@ -142,7 +142,9 @@ class FlashCardsApp {
   
   void clickRevealButton(MouseEvent e) {
     e.preventDefault();
+    question.hidden = true;
     answer.hidden = false;
+    
     revealButton.hidden = true;
     rightButton.hidden = false;
     wrongButton.hidden = false;
@@ -150,7 +152,10 @@ class FlashCardsApp {
   
   void clickRightButton(MouseEvent e) {
     e.preventDefault();
+    
+    question.hidden = false;
     answer.hidden = true;
+    
     revealButton.hidden = false;
     rightButton.hidden = true;
     wrongButton.hidden = true;
@@ -162,7 +167,10 @@ class FlashCardsApp {
   
   void clickWrongButton(MouseEvent e) {
     e.preventDefault();
+    
+    question.hidden = false;
     answer.hidden = true;
+    
     revealButton.hidden = false;
     rightButton.hidden = true;
     wrongButton.hidden = true;
