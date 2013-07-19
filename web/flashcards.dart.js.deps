@@ -16,6 +16,7 @@ file:///C:/Program Files/Dart/dart-sdk/lib/_internal/lib/isolate_helper.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/_internal/lib/isolate_patch.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/_internal/lib/js_array.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/_internal/lib/js_helper.dart
+file:///C:/Program Files/Dart/dart-sdk/lib/_internal/lib/js_names.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/_internal/lib/js_number.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/_internal/lib/js_rti.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/_internal/lib/js_string.dart
@@ -26,6 +27,7 @@ file:///C:/Program Files/Dart/dart-sdk/lib/_internal/lib/regexp_helper.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/_internal/lib/string_helper.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/async/async.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/async/async_error.dart
+file:///C:/Program Files/Dart/dart-sdk/lib/async/broadcast_stream_controller.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/async/deferred_load.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/async/event_loop.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/async/future.dart
@@ -86,6 +88,7 @@ file:///C:/Program Files/Dart/dart-sdk/lib/html/html_common/css_class_set.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/html/html_common/device.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/html/html_common/filtered_element_list.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/html/html_common/html_common_dart2js.dart
+file:///C:/Program Files/Dart/dart-sdk/lib/html/html_common/jenkins_smi_hash.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/html/html_common/lists.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/html/html_common/metadata.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/indexed_db/dart2js/indexed_db_dart2js.dart
@@ -94,7 +97,6 @@ file:///C:/Program Files/Dart/dart-sdk/lib/isolate/isolate_stream.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/json/json.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/math/math.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/math/random.dart
-file:///C:/Program Files/Dart/dart-sdk/lib/mdv_observe_impl/mdv_observe_impl.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/svg/dart2js/svg_dart2js.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/typed_data/dart2js/typed_data_dart2js.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/utf/utf.dart
@@ -106,4 +108,5 @@ file:///C:/Program Files/Dart/dart-sdk/lib/web_audio/dart2js/web_audio_dart2js.d
 file:///C:/Program Files/Dart/dart-sdk/lib/web_gl/dart2js/web_gl_dart2js.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/web_sql/dart2js/web_sql_dart2js.dart
 file:///C:/xampp/htdocs/flashcards/web/Card.dart
+file:///C:/xampp/htdocs/flashcards/web/DataManager.dart
 file:///C:/xampp/htdocs/flashcards/web/flashcards.dart

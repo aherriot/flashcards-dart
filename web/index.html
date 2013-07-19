@@ -6,7 +6,11 @@
     <title>Flashcards</title>
     <link rel="stylesheet" href="flashcards.css">
   </head>
+  
   <body>
+    <div class="container">
+      <div class="centre">
+        
     <h1>Farsi Flashcards</h1>
     
     <div id="quizDiv">
@@ -16,8 +20,7 @@
         <input type="radio" name="from" value="latinFarsi"/>Latin Farsi <br />
         <input type="text" id="tags" size="30" placeholder="Filter by comma-seperated tags"/> <br />
         
-        <p id="question"> </p>
-        <p id="answer"> </p>
+        <p id="cardDisplayArea"> </p>
         <button id="revealButton" class="blueButton">Reveal Answer</button>
         <button id="rightButton" class="greenButton">Right</button>
         <button id="wrongButton" class="redButton">Wrong</button>
@@ -35,6 +38,10 @@
     <a id="seedData" href="">Seed Data</a>-->
     <a id="toggleDisplayData" href="">Show Data</a>
     
+      </div>
+    </div>
+    
+    <!-- scripts at the bottom for performance improvements? -->
     <script type="application/dart" src="flashcards.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>

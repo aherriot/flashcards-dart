@@ -34,8 +34,7 @@ class FlashCardsApp {
   ButtonElement rightButton;
   ButtonElement wrongButton;
   
-  ParagraphElement question;
-  ParagraphElement answer;
+  ParagraphElement cardDisplayArea;
   
   ParagraphElement errorParagraph;
   
@@ -79,9 +78,7 @@ class FlashCardsApp {
       ..hidden = true
       ..onClick.listen(clickWrongButton);
     
-    question = query("#question");
-    answer = query("#answer")
-      ..hidden = true;
+    cardDisplayArea = query("#cardDisplayArea");
     
     errorParagraph = query("#error");
     
@@ -142,8 +139,8 @@ class FlashCardsApp {
   
   void clickRevealButton(MouseEvent e) {
     e.preventDefault();
-    question.hidden = true;
-    answer.hidden = false;
+    
+    cardDisplayArea.innerHtml = "${currentCard.english}&emsp;&emsp;&emsp;${currentCard.farsi}&emsp;&emsp;&emsp;${currentCard.latinFarsi}";
     
     revealButton.hidden = true;
     rightButton.hidden = false;
@@ -152,9 +149,6 @@ class FlashCardsApp {
   
   void clickRightButton(MouseEvent e) {
     e.preventDefault();
-    
-    question.hidden = false;
-    answer.hidden = true;
     
     revealButton.hidden = false;
     rightButton.hidden = true;
@@ -167,9 +161,6 @@ class FlashCardsApp {
   
   void clickWrongButton(MouseEvent e) {
     e.preventDefault();
-    
-    question.hidden = false;
-    answer.hidden = true;
     
     revealButton.hidden = false;
     rightButton.hidden = true;
@@ -241,16 +232,15 @@ class FlashCardsApp {
     print("Choose: $nextInt");
     currentCard = workingDictionary[nextInt];
     
-    answer.innerHtml = "${currentCard.english}&emsp;&emsp;&emsp;${currentCard.farsi}&emsp;&emsp;&emsp;${currentCard.latinFarsi}";
-    
+
     if(englishRadioButton.checked) {
-      question.text = currentCard.english;    
+      cardDisplayArea.text = currentCard.english;    
     } 
     else if(farsiRadioButton.checked) {
-      question.text = currentCard.farsi;
+      cardDisplayArea.text = currentCard.farsi;
     } 
     else if(latinFarsiRadioButton.checked) {
-      question.text = currentCard.latinFarsi; 
+      cardDisplayArea.text = currentCard.latinFarsi; 
     } 
   }
   

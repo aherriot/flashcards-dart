@@ -7,21 +7,13 @@ body {
   line-height: 1.2em;
   text-align: center;
   
+  //width: 400px;
   //max-width: 500px;
   //min-width 300px;
 }
 
 h1, p {
   color: #333;
-}
-
-hr {
-
-  border: 0;
-  color: black;
-  background-color: black;
-  height: 2px;
-  
 }
 
 table {
@@ -44,6 +36,14 @@ button:active {
    -moz-box-shadow:    inset 0 0 6px #333333;
    -webkit-box-shadow: inset 0 0 6px #333333;
    box-shadow:         inset 0 0 6px #333333;  
+}
+
+
+.container {
+  text-align: center;
+}
+.centre {
+  display: inline-block;  
 }
 
 .blueButton {
@@ -83,7 +83,7 @@ button:active {
   background-color: red;
 }
 
-#answer, #question {
+#cardDisplayArea {
   background-color: #FFC; 
   border: 2px solid #CCC;
   padding: 10px; 
