@@ -47,6 +47,7 @@ class DataManager {
     cards.add(new Card("ze", "ﺯ", "ze", 1.0, 1.0, 1.0, ["letter"]));
     cards.add(new Card("zhe", "ژ", "zhe", 1.0, 1.0, 1.0, ["letter"]));
     cards.add(new Card("sin", "ﺱ", "sin", 1.0, 1.0, 1.0, ["letter"]));
+    cards.add(new Card("shin", "ﺵ", "shin", 1.0, 1.0, 1.0, ["letter"]));
     cards.add(new Card("saad", "ﺹ", "saad", 1.0, 1.0, 1.0, ["letter"]));
     cards.add(new Card("zaad", "ﺽ", "zaad", 1.0, 1.0, 1.0, ["letter"]));
     cards.add(new Card("ta", "ﻁ", "ta", 1.0, 1.0, 1.0, ["letter"]));
