@@ -69,12 +69,25 @@ class DataManager {
     cards.add(new Card("1", "۱", "yek", 1.0, 1.0, 1.0, ["digit"]));
     cards.add(new Card("2", "۲", "do", 1.0, 1.0, 1.0, ["digit"]));
     cards.add(new Card("3", "۳", "seh", 1.0, 1.0, 1.0, ["digit"]));
-    cards.add(new Card("4", "۴", "chahaar", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("4", "۴", "char", 1.0, 1.0, 1.0, ["digit"]));
     cards.add(new Card("5", "۵", "panj", 1.0, 1.0, 1.0, ["digit"]));
-    cards.add(new Card("6", "۶", "shesh", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("6", "۶", "sheesh", 1.0, 1.0, 1.0, ["digit"]));
     cards.add(new Card("7", "۷", "haft", 1.0, 1.0, 1.0, ["digit"]));
     cards.add(new Card("8", "۸", "hasht", 1.0, 1.0, 1.0, ["digit"]));
     cards.add(new Card("9", "۹", "noh", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("10", "ده", "dah", 1.0, 1.0, 1.0, ["digit"]));
+    cards.add(new Card("11", "یازده", "yazdah", 1.0, 1.0, 1.0, ["digit", "number"]));
+    cards.add(new Card("12", "دوازده", "davaazdah", 1.0, 1.0, 1.0, ["digit", "number"]));
+    cards.add(new Card("13", "سیزده", "sizdah", 1.0, 1.0, 1.0, ["digit", "number"]));
+    cards.add(new Card("14", "چهارده", "chardah", 1.0, 1.0, 1.0, ["digit", "number"]));
+    cards.add(new Card("15", "پانزده", "panzdah", 1.0, 1.0, 1.0, ["digit", "number"]));
+    cards.add(new Card("16", "شانزده", "shanzdah", 1.0, 1.0, 1.0, ["digit", "number"]));
+    cards.add(new Card("17", "هفده", "hefdah", 1.0, 1.0, 1.0, ["digit", "number"]));
+    cards.add(new Card("18", "هجده", "hejdah", 1.0, 1.0, 1.0, ["digit", "number"]));
+    cards.add(new Card("19", "نوزده", "noozdah", 1.0, 1.0, 1.0, ["digit", "number"]));
+    cards.add(new Card("20", "بیست", "bist", 1.0, 1.0, 1.0, ["digit", "number"]));
+    cards.add(new Card("21", "بیست و یک", "bist o yek", 1.0, 1.0, 1.0, ["digit", "number"]));
+    
 
     cards.add(new Card("water", "آب", "ab", 1.0, 1.0, 1.0, ["noun", "food"]));
     cards.add(new Card("juice", "آبمیوه", "abmiveh", 1.0, 1.0, 1.0, ["noun", "food"]));
