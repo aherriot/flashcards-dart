@@ -109,18 +109,21 @@ class FlashCardsApp {
     print("English selected");
     selectedSource = ENGLISH;
     workingDictionary.sort((Card e, Card e2) => e.compareEnglishScore(e2));
+    showNextCard();
   }
   
   void farsiSelected(Event e) {
     print("Farsi selected");
     selectedSource = FARSI;
     workingDictionary.sort((Card e, Card e2) => e.compareFarsiScore(e2));
+    showNextCard();
   }
   
   void phoneticSelected(Event e) {
     print("phonetic selected");
     selectedSource = PHONETIC;
     workingDictionary.sort((Card e, Card e2) => e.comparephoneticScore(e2));
+    showNextCard();
   }
   
   //Event handler for when the tag filters are edited
@@ -138,14 +141,13 @@ class FlashCardsApp {
     }
     
     showNextCard();
-    
     //toggleDisplayDataAnchor.click(); //update the display data;
   }
   
   void clickRevealButton(MouseEvent e) {
     e.preventDefault();
     
-    cardDisplayArea.innerHtml = "${currentCard.english}&emsp;&emsp;&emsp;${currentCard.farsi}&emsp;&emsp;&emsp;${currentCard.phonetic}";
+    cardDisplayArea.innerHtml = "${currentCard.english}<br/>${currentCard.farsi}<br/>${currentCard.phonetic}";
     
     revealButton.hidden = true;
     rightButton.hidden = false;
@@ -155,24 +157,14 @@ class FlashCardsApp {
   void clickRightButton(MouseEvent e) {
     e.preventDefault();
     
-    revealButton.hidden = false;
-    rightButton.hidden = true;
-    wrongButton.hidden = true;
-    
-    updateCard(1.4);
-    
+    updateCard(1.4);    
     showNextCard();
   }
   
   void clickWrongButton(MouseEvent e) {
     e.preventDefault();
-    
-    revealButton.hidden = false;
-    rightButton.hidden = true;
-    wrongButton.hidden = true;
-    
-    updateCard(0.5);
-    
+
+    updateCard(0.5);    
     showNextCard();
   }
   
@@ -228,6 +220,9 @@ class FlashCardsApp {
   void showNextCard() {
     
     //toggleDisplayDataAnchor.click();
+    revealButton.hidden = false;
+    rightButton.hidden = true;
+    wrongButton.hidden = true;
     
     if (workingDictionary.length == 0)
       return;
