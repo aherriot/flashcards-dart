@@ -94,9 +94,7 @@ class DataManager {
     cards.add(new Card("beer", "آبجو", "abjo", 1.0, 1.0, 1.0, ["noun", "food"]));
     cards.add(new Card("wine", "شراب", "sharab", 1.0, 1.0, 1.0, ["noun", "food"]));
     cards.add(new Card("milk", "شیر", "shir", 1.0, 1.0, 1.0, ["noun", "food"]));
-
     cards.add(new Card("olive", "زیتون", "zeitoon", 1.0, 1.0, 1.0, ["noun", "food"]));
-
     cards.add(new Card("chicken", "جوجه", "joojeh", 1.0, 1.0, 1.0, ["noun", "food", "animal"]));
     cards.add(new Card("beef", "گوشت گاو", "goosht e gav", 1.0, 1.0, 1.0, ["noun", "food"]));
     cards.add(new Card("lamb", "بره", "barreh", 1.0, 1.0, 1.0, ["noun", "food",]));
@@ -108,6 +106,38 @@ class DataManager {
     cards.add(new Card("duck", "اردک", "ordak", 1.0, 1.0, 1.0, ["noun", "animal"]));
     cards.add(new Card("cow", "گاو", "gav", 1.0, 1.0, 1.0, ["noun", "animal"]));
     cards.add(new Card("fish", "ماهی", "mahi", 1.0, 1.0, 1.0, ["noun", "animal"]));
+    
+    cards.add(new Card("Hi", "سلام", "salam", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Good morning", "صبح بخی", "Sobh Be kheyr", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Good evening", "عصر بخیر", "Asr be kheyr", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Good night", "شب بخیر", "Shab be kheyr", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Welcome", "خوش آمدید", "Khosh Amadid", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("How are you?", "حال شما چطور هست", "Haleh shoma chetor hast?", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Thank you", "ممنون", "Mamnoon", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("You're welcome", "خواهش میکنم", "Khahesh mikonam", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("See you later", "بعدأ میبینمت", "Ba’adan mibinamet", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Nice to meet you", "از ملاقات شما خوش وقتم", "Az molaghat e sham khosh vaghtam", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Good luck", "موفق باشید", "Mo’afagh bashed", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Congratulations", "تبریک می گویم", "Tabrik migoyam", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Sorry", "ببخشید", "Bebakhshid", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("No Problem", "مشکلی نیست", "Moshkeli nist", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("I need to practice my Persian", "من باید فارسی رو بیشتر تمرین کنم", "Man bayad farsi ro bishtar tamrin konam", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("What?", "چی؟", "Chi?", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Where?", "کجا؟", "Koja?", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("Why?", "چرا؟", "Chara?", 1.0, 1.0, 1.0, ["phrase"]));
+    cards.add(new Card("I love you", "دوست دارم", "Doset daram", 1.0, 1.0, 1.0, ["phrase"]));
+    //cards.add(new Card("", "", "", 1.0, 1.0, 1.0, ["phrase"]));
+    
+    cards.add(new Card("Black", "سیاه", "seeyah", 1.0, 1.0, 1.0, ["adjective", "colour"]));
+    cards.add(new Card("Blue", "آبی", "abi", 1.0, 1.0, 1.0, ["adjective", "colour"]));
+    cards.add(new Card("Brown", "قهوه ای", "gah-ve-yee", 1.0, 1.0, 1.0, ["adjective", "colour"]));
+    cards.add(new Card("Grey", "خاکسری", "khakestari", 1.0, 1.0, 1.0, ["adjective", "colour"]));
+    cards.add(new Card("Green", "سبز", "sabz", 1.0, 1.0, 1.0, ["adjective", "colour"]));
+    cards.add(new Card("Orange", "نارنجی", "narenji", 1.0, 1.0, 1.0, ["adjective", "colour"]));
+    cards.add(new Card("Purple", "ارغوونی", "arghavani", 1.0, 1.0, 1.0, ["adjective", "colour"]));
+    cards.add(new Card("Red", "قرمز", "ghermez", 1.0, 1.0, 1.0, ["adjective", "colour"]));
+    cards.add(new Card("White", "سفيد", "safeed", 1.0, 1.0, 1.0, ["adjective", "colour"]));
+    cards.add(new Card("Yellow", "زرد", "zard", 1.0, 1.0, 1.0, ["adjective", "colour"]));
 
   }
 }
