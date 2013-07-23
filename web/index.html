@@ -11,37 +11,41 @@
     <div class="container">
       <div class="centre">
         
-    <h1>Farsi Flashcards</h1>
-    
-    <div id="quizDiv">
-      <form>From:
-        <input type="radio" name="from" value="english" />English
-        <input type="radio" name="from" value="farsi"/>Farsi
-        <input type="radio" name="from" value="latinFarsi"/>Latin Farsi <br />
-        <input type="text" id="tags" size="30" placeholder="Filter by comma-seperated tags"/> <br />
-        
-        <p id="cardDisplayArea"> </p>
-        <button id="revealButton" class="blueButton">Reveal Answer</button>
-        <button id="rightButton" class="greenButton">Right</button>
-        <button id="wrongButton" class="redButton">Wrong</button>
-      </form>      
+          <h1>Farsi Flashcards</h1>
+          
+          <div id="loadingPanel">
+            <p> Loading... </p>
+          </div>
+          
+          <div id="quizPanel">
+            <p id="cardDisplayArea"> </p>
+            <button id="revealButton" class="blueButton">Reveal Answer</button>
+            <button id="rightButton" class="greenButton">Right</button>
+            <button id="wrongButton" class="redButton">Wrong</button>
+            <p id="error"></p>
+          </div>
+          
+          <div id="optionsPanel">
+            <form>From:
+              <input type="radio" name="from" value="english" />English
+              <input type="radio" name="from" value="farsi"/>Farsi
+              <input type="radio" name="from" value="phonetic"/>Phonetic <br />
+              <input type="text" id="tags" size="30" placeholder="Filter by comma-seperated tags"/> <br />
+            </form>  
+            <!--<a id="toggleDisplayData">Display Data</a>-->
+          </div>
+          
+          <div id="dataPanel">
       
-      
-      <p id="error"></p>
-    </div>
+            <div id="dataDisplayArea"></div>
+            <!--<a id="clearData" href="">Clear Data</a>
+            <a id="seedData" href="">Seed Data</a>-->
+          </div>
+
     
-    <div id="dataDiv">
-      <div id="dataDisplayArea"></div>
-    </div>
+      </div> <!-- centre -->
+    </div> <!-- container -->
     
-    <!--<a id="clearData" href="">Clear Data</a>
-    <a id="seedData" href="">Seed Data</a>-->
-    <a id="toggleDisplayData" href="">Show Data</a>
-    
-      </div>
-    </div>
-    
-    <!-- scripts at the bottom for performance improvements? -->
     <script type="application/dart" src="flashcards.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>

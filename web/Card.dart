@@ -4,26 +4,26 @@ class Card
 {
   String english;
   String farsi;
-  String latinFarsi;
+  String phonetic;
   
   double englishScore;
   double farsiScore;
-  double latinFarsiScore;
+  double phoneticScore;
   
   List<String> tags;
   
-  Card(this.english, this.farsi, this.latinFarsi, this.englishScore, this.farsiScore, this.latinFarsiScore, this.tags);
+  Card(this.english, this.farsi, this.phonetic, this.englishScore, this.farsiScore, this.phoneticScore, this.tags);
   Card.fromString(String data) {
     
     List<String> dataItems = data.split("|");
     
     english = dataItems[0];
     farsi = dataItems[1];
-    latinFarsi = dataItems[2];
+    phonetic = dataItems[2];
     
     englishScore = double.parse(dataItems[3]);
     farsiScore = double.parse(dataItems[4]);
-    latinFarsiScore = double.parse(dataItems[5]);
+    phoneticScore = double.parse(dataItems[5]);
     
     tags = dataItems[6].split(",");
   }
@@ -46,17 +46,17 @@ class Card
       return 1;
   }
   
-  int compareLatinFarsiScore(Card other) {
-    if(latinFarsiScore < other.latinFarsiScore)
+  int comparephoneticScore(Card other) {
+    if(phoneticScore < other.phoneticScore)
       return -1;
-    else if(latinFarsiScore == other.latinFarsiScore)
+    else if(phoneticScore == other.phoneticScore)
       return 0;
     else
       return 1;
   }
   
   String toString() {
-    return "$english|$farsi|$latinFarsi|$englishScore|$farsiScore|$latinFarsiScore|${tagsAsCSV()}";
+    return "$english|$farsi|$phonetic|$englishScore|$farsiScore|$phoneticScore|${tagsAsCSV()}";
   }
   
   //Return a string with an html representation of this object for editing. 
@@ -70,7 +70,7 @@ class Card
     cell.innerHtml = '<input type="text" name="farsi" size= "6" placeholder="farsi" value="$farsi">\n';
 
     cell = row.addCell();
-    cell.innerHtml = '<input type="text" name="latinFarsi" size= "6" placeholder="Latin Farsi" value="$latinFarsi">\n';
+    cell.innerHtml = '<input type="text" name="phonetic" size= "6" placeholder="Latin Farsi" value="$phonetic">\n';
     
     cell = row.addCell();
     cell.innerHtml = '<input type="text" name="englishScore" size= "1" placeholder="English Score" value="$englishScore">\n';
@@ -79,7 +79,7 @@ class Card
     cell.innerHtml = '<input type="text" name="farsiScore" size= "1" placeholder="Farsi Score" value="$farsiScore">\n';
     
     cell = row.addCell();
-    cell.innerHtml = '<input type="text" name="latinFarsiScore" size= "1" placeholder="Latin Farsi Score" value="$latinFarsiScore">\n';
+    cell.innerHtml = '<input type="text" name="phoneticScore" size= "1" placeholder="Latin Farsi Score" value="$phoneticScore">\n';
     
     cell = row.addCell();
     cell.innerHtml = '<input type="text" name="tags" size= "20" placeholder="Filter tags" value="${tagsAsCSV()}">\n';

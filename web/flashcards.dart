@@ -20,13 +20,13 @@ class FlashCardsApp {
   
   static const int ENGLISH = 0;
   static const int FARSI = 1;
-  static const int LATIN_FARSI = 2;
+  static const int PHONETIC = 2;
   int selectedSource = ENGLISH;
   Card currentCard;
   
   RadioButtonInputElement englishRadioButton;
   RadioButtonInputElement farsiRadioButton;
-  RadioButtonInputElement latinFarsiRadioButton;
+  RadioButtonInputElement phoneticRadioButton;
   
   TextInputElement tagsInput;
   
@@ -42,6 +42,7 @@ class FlashCardsApp {
   AnchorElement seedDataAnchor;
   AnchorElement clearDataAnchor;
   DivElement dataDisplayArea;
+  DivElement loadingPanel;
   
   void run() {
     initialize(); 
@@ -49,11 +50,15 @@ class FlashCardsApp {
     tagsChanged(new Event('MouseEvent'));
     englishSelected(new Event('MouseEvent'));
     
+    loadingPanel.hidden = true;
+    
     showNextCard();
   }
   
   void initialize() {
     
+   loadingPanel = query("#loadingPanel");
+   
    englishRadioButton = query("input[value=\"english\"]")
       ..onClick.listen(englishSelected)
       ..checked = true;
@@ -61,8 +66,8 @@ class FlashCardsApp {
     farsiRadioButton = query("input[value=\"farsi\"]")
       ..onClick.listen(farsiSelected);
     
-    latinFarsiRadioButton = query("input[value=\"latinFarsi\"]")
-      ..onClick.listen(latinFarsiSelected);
+    phoneticRadioButton = query("input[value=\"phonetic\"]")
+      ..onClick.listen(phoneticSelected);
     
     tagsInput = query("#tags")
       ..onChange.listen(tagsChanged);
@@ -84,8 +89,8 @@ class FlashCardsApp {
     
     dataManager = new DataManager(displayError);
     
-    toggleDisplayDataAnchor = query("#toggleDisplayData")
-      ..onClick.listen(displayData);
+    //toggleDisplayDataAnchor = query("#toggleDisplayData")
+    //  ..onClick.listen(displayData);
     
     //clearDataAnchor = query("#clearData")
     //  ..onClick.listen(dataManager.clearData);
@@ -112,10 +117,10 @@ class FlashCardsApp {
     workingDictionary.sort((Card e, Card e2) => e.compareFarsiScore(e2));
   }
   
-  void latinFarsiSelected(Event e) {
-    print("LatinFarsi selected");
-    selectedSource = LATIN_FARSI;
-    workingDictionary.sort((Card e, Card e2) => e.compareLatinFarsiScore(e2));
+  void phoneticSelected(Event e) {
+    print("phonetic selected");
+    selectedSource = PHONETIC;
+    workingDictionary.sort((Card e, Card e2) => e.comparephoneticScore(e2));
   }
   
   //Event handler for when the tag filters are edited
@@ -140,7 +145,7 @@ class FlashCardsApp {
   void clickRevealButton(MouseEvent e) {
     e.preventDefault();
     
-    cardDisplayArea.innerHtml = "${currentCard.english}&emsp;&emsp;&emsp;${currentCard.farsi}&emsp;&emsp;&emsp;${currentCard.latinFarsi}";
+    cardDisplayArea.innerHtml = "${currentCard.english}&emsp;&emsp;&emsp;${currentCard.farsi}&emsp;&emsp;&emsp;${currentCard.phonetic}";
     
     revealButton.hidden = true;
     rightButton.hidden = false;
@@ -204,10 +209,10 @@ class FlashCardsApp {
         }
       }
     }
-    else if(latinFarsiRadioButton.checked) {
-      currentCard.latinFarsiScore *= scoreAdjustmentFactor;
+    else if(phoneticRadioButton.checked) {
+      currentCard.phoneticScore *= scoreAdjustmentFactor;
       for(int i = 0; i < workingDictionary.length; i++) {
-        if(currentCard.latinFarsiScore <= workingDictionary[i].latinFarsiScore) {
+        if(currentCard.phoneticScore <= workingDictionary[i].phoneticScore) {
           workingDictionary.insert(i, currentCard);
           break;
         }      
@@ -239,8 +244,8 @@ class FlashCardsApp {
     else if(farsiRadioButton.checked) {
       cardDisplayArea.text = currentCard.farsi;
     } 
-    else if(latinFarsiRadioButton.checked) {
-      cardDisplayArea.text = currentCard.latinFarsi; 
+    else if(phoneticRadioButton.checked) {
+      cardDisplayArea.text = currentCard.phonetic; 
     } 
   }
   
@@ -249,7 +254,7 @@ class FlashCardsApp {
   
     TableElement table = new TableElement();
     //TableRowElement header = table.addRow();
-    // header.innerHtml = '<tr><td>English</td><td>Farsi</td><td>Latin<br/>Farsi</td><td>English<br/>Score</td><td>Latin<br/>Score</td><td>Farsi<br/>Score</td><td>Latin<br/>Farsi<br/>Score</td></tr>';
+    // header.innerHtml = '<tr><td>English</td><td>Farsi</td><td>Phonetic<br/>Farsi</td><td>English<br/>Score</td><td>Ponetic<br/>Score</td><td>Farsi<br/>Score</td><td>Phonetic<br/>Farsi<br/>Score</td></tr>';
     workingDictionary.forEach((Card e) => table.append(e.toTableRowElement()));
     
     dataDisplayArea.innerHtml = '';
