@@ -106,21 +106,18 @@ class FlashCardsApp {
   }
   
   void englishSelected(Event e) {
-    print("English selected");
     selectedSource = ENGLISH;
     workingDictionary.sort((Card e, Card e2) => e.compareEnglishScore(e2));
     showNextCard();
   }
   
   void farsiSelected(Event e) {
-    print("Farsi selected");
     selectedSource = FARSI;
     workingDictionary.sort((Card e, Card e2) => e.compareFarsiScore(e2));
     showNextCard();
   }
   
   void phoneticSelected(Event e) {
-    print("phonetic selected");
     selectedSource = PHONETIC;
     workingDictionary.sort((Card e, Card e2) => e.comparephoneticScore(e2));
     showNextCard();
@@ -128,7 +125,7 @@ class FlashCardsApp {
   
   //Event handler for when the tag filters are edited
   void tagsChanged(Event e) {
-    //print(tagsInput.value); 
+    e.preventDefault();
     
     workingDictionary = dataManager.getFilteredData(tagsInput.value);
 
@@ -227,9 +224,10 @@ class FlashCardsApp {
     if (workingDictionary.length == 0)
       return;
     
-    int nextInt = random.nextInt(Math.min(workingDictionary.length-1, 4));
+    int nextInt = 0;
+    if(workingDictionary.length > 1)
+      nextInt = random.nextInt(Math.min(workingDictionary.length-1, 4));
     
-    print("Choose: $nextInt");
     currentCard = workingDictionary[nextInt];
     
 
@@ -242,6 +240,8 @@ class FlashCardsApp {
     else if(phoneticRadioButton.checked) {
       cardDisplayArea.text = currentCard.phonetic; 
     } 
+    
+    displayData(new MouseEvent(''));
   }
   
   void displayData(MouseEvent e) {

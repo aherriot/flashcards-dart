@@ -26,6 +26,7 @@ class Card
     phoneticScore = double.parse(dataItems[5]);
     
     tags = dataItems[6].split(",");
+    print( english + " : "+ tags.toString());
   }
   
   int compareEnglishScore(Card other) {
@@ -89,6 +90,7 @@ class Card
   //return true if this card matches All of the tags in the list tagsToFilter
   bool hasTags(List<String> tagsToFilter)
   {
+    
     for(String tag in tagsToFilter) {
       tag = tag.trim();
       
@@ -104,13 +106,8 @@ class Card
   
   //return string
   String tagsAsCSV() {
-    String csv = tags.toString();
     
-    //delete the outer brackets from the string i.e. "[]"
-    if(tags.length > 0)
-      csv = csv.substring(1, csv.length-1);
-    
-    return csv;  
+    return tags.join(",");
   }
 
 }

@@ -81,13 +81,6 @@ $$.DocumentFragment = {"": "Node;",
       receiver._children = $.FilteredElementList$(receiver);
     return receiver._children;
   },
-  get$innerHtml: function(receiver) {
-    var e, t1;
-    e = $.Element_Element$tag("div");
-    t1 = $.getInterceptor$x(e);
-    t1.append$1(e, this.clone$1(receiver, true));
-    return t1.get$innerHtml(e);
-  },
   set$innerHtml: function(receiver, value) {
     var t1, e, nodes;
     t1 = this.get$nodes(receiver);
@@ -111,7 +104,7 @@ $$.DomException = {"": "Interceptor;",
   }
 };
 
-$$.Element = {"": "Node;hidden},innerHtml:innerHTML%,$$dom_children:children=",
+$$.Element = {"": "Node;hidden},innerHtml:innerHTML},$$dom_children:children=",
   get$children: function(receiver) {
     return $._ChildrenElementList$_wrap(receiver);
   },
@@ -293,12 +286,6 @@ $$.Node = {"": "EventTarget;",
   $$dom_addEventListener$3: function(receiver, type, listener, useCapture) {
     return receiver.addEventListener(type, $.convertDartClosureToJS(listener, 1), useCapture);
   },
-  append$1: function(receiver, newChild) {
-    return receiver.appendChild(newChild);
-  },
-  clone$1: function(receiver, deep) {
-    return receiver.cloneNode(deep);
-  },
   $$dom_removeEventListener$3: function(receiver, type, listener, useCapture) {
     return receiver.removeEventListener(type, $.convertDartClosureToJS(listener, 1), useCapture);
   },
@@ -386,11 +373,7 @@ $$.SelectElement = {"": "_HTMLElement;length=,value="};
 
 $$.ShadowElement = {"": "_HTMLElement;"};
 
-$$.ShadowRoot = {"": "DocumentFragment;innerHtml:innerHTML%",
-  clone$1: function(receiver, deep) {
-    return receiver.cloneNode(deep);
-  }
-};
+$$.ShadowRoot = {"": "DocumentFragment;innerHtml:innerHTML}"};
 
 $$.SourceElement = {"": "_HTMLElement;"};
 
@@ -457,14 +440,7 @@ $$.TableColElement = {"": "_HTMLElement;"};
 
 $$.TableElement = {"": "_HTMLElement;"};
 
-$$.TableRowElement = {"": "_HTMLElement;",
-  addCell$0: function(receiver) {
-    return this.insertCell$1(receiver, -1);
-  },
-  insertCell$1: function(receiver, index) {
-    return receiver.insertCell(index);
-  }
-};
+$$.TableRowElement = {"": "_HTMLElement;"};
 
 $$.TableSectionElement = {"": "_HTMLElement;"};
 
@@ -643,19 +619,11 @@ $$.SvgElement = {"": "Element;",
     children.clear$0(children);
     children.addAll$1(children, value);
   },
-  get$innerHtml: function(receiver) {
-    var container, cloned, t1;
-    container = $.Element_Element$tag("div");
-    cloned = receiver.cloneNode(true);
-    t1 = $.getInterceptor$x(container);
-    $.addAll$1$ax(t1.get$children(container), $.get$children$x(cloned));
-    return t1.get$innerHtml(container);
-  },
   set$innerHtml: function(receiver, svg) {
     var container, t1;
     container = $.Element_Element$tag("div");
     t1 = $.getInterceptor$x(container);
-    t1.set$innerHtml(container, "<svg version=\"1.1\">" + $.S(svg) + "</svg>");
+    t1.set$innerHtml(container, "<svg version=\"1.1\">" + svg + "</svg>");
     this.set$children(receiver, $.get$children$x($.$index$asx(t1.get$children(container), 0)));
   },
   get$$$dom_children: function(receiver) {
@@ -966,11 +934,6 @@ JSArray: {"": "List/Interceptor;",
   },
   retainWhere$1: function(receiver, test) {
     $.IterableMixinWorkaround_removeWhereList(receiver, new $.JSArray_retainWhere_closure(receiver, test));
-  },
-  addAll$1: function(receiver, collection) {
-    var t1;
-    for (t1 = $.get$iterator$ax(collection); t1.moveNext$0() === true;)
-      this.add$1(receiver, t1.get$current());
   },
   clear$0: function(receiver) {
     this.set$length(receiver, 0);
@@ -1718,7 +1681,7 @@ _NativeJsSendPort_send_closure: {"": "Closure;this_1,message_2,replyTo_3",
     isolate = t4.$index(t4, t2.get$_isolateId());
     if (isolate == null)
       return;
-    if (t2.get$_receivePort().get$_liblib2$_callback() == null)
+    if (t2.get$_receivePort().get$_liblib3$_callback() == null)
       return;
     shouldSerialize = $._globalState().currentContext != null && $._globalState().currentContext.id !== t2.get$_isolateId();
     msg = this.message_2;
@@ -1736,14 +1699,14 @@ _NativeJsSendPort_send__closure: {"": "Closure;box_0,this_4,shouldSerialize_5",
   call$0: function() {
     var t1, t2;
     t1 = this.this_4;
-    if (t1.get$_receivePort().get$_liblib2$_callback() != null) {
+    if (t1.get$_receivePort().get$_liblib3$_callback() != null) {
       if (this.shouldSerialize_5) {
         t2 = this.box_0;
         t2.msg_0 = $._deserializeMessage(t2.msg_0);
         t2.reply_1 = $._deserializeMessage(t2.reply_1);
       }
       t2 = this.box_0;
-      t1.get$_receivePort()._liblib2$_callback$2(t2.msg_0, t2.reply_1);
+      t1.get$_receivePort()._liblib3$_callback$2(t2.msg_0, t2.reply_1);
     }
   }
 },
@@ -1801,15 +1764,15 @@ _WorkerSendPort_send_closure: {"": "Closure;this_0,message_1,replyTo_2",
   }
 },
 
-ReceivePortImpl: {"": "Object;_id<,_liblib2$_callback<",
-  _liblib2$_callback$2: function(arg0, arg1) {
-    return this._liblib2$_callback.call$2(arg0, arg1);
+ReceivePortImpl: {"": "Object;_id<,_liblib3$_callback<",
+  _liblib3$_callback$2: function(arg0, arg1) {
+    return this._liblib3$_callback.call$2(arg0, arg1);
   },
   receive$1: function(onMessage) {
-    this._liblib2$_callback = onMessage;
+    this._liblib3$_callback = onMessage;
   },
   close$0: function(_) {
-    this._liblib2$_callback = null;
+    this._liblib3$_callback = null;
     $._globalState().currentContext.unregister$1(this._id);
   },
   toSendPort$0: function() {
@@ -3419,9 +3382,6 @@ FixedLengthListMixin: {"": "Object;",
   insert$2: function(receiver, index, value) {
     throw $.wrapException(new $.UnsupportedError("Cannot add to a fixed-length list"));
   },
-  addAll$1: function(receiver, iterable) {
-    throw $.wrapException($.UnsupportedError$("Cannot add to a fixed-length list"));
-  },
   remove$1: function(receiver, element) {
     throw $.wrapException($.UnsupportedError$("Cannot remove from a fixed-length list"));
   }
@@ -4749,9 +4709,9 @@ StreamSubscription: {"": "Object;"},
 
 EventSink: {"": "Object;"},
 
-_BufferingStreamSubscription: {"": "Object;_liblib3$_onData,_onError,_onDone,_zone<,_state@,_pending",
-  _liblib3$_onData$1: function(arg0) {
-    return this._liblib3$_onData.call$1(arg0);
+_BufferingStreamSubscription: {"": "Object;_liblib4$_onData,_onError,_onDone,_zone<,_state@,_pending",
+  _liblib4$_onData$1: function(arg0) {
+    return this._liblib4$_onData.call$1(arg0);
   },
   _onError$1: function(arg0) {
     return this._onError.call$1(arg0);
@@ -4806,7 +4766,7 @@ _BufferingStreamSubscription: {"": "Object;_liblib3$_onData,_onError,_onDone,_zo
   get$_isInputPaused: function() {
     return (this._state & 4) !== 0;
   },
-  get$_liblib3$_isClosed: function() {
+  get$_liblib4$_isClosed: function() {
     return (this._state & 2) !== 0;
   },
   get$_isCanceled: function() {
@@ -4844,7 +4804,7 @@ _BufferingStreamSubscription: {"": "Object;_liblib3$_onData,_onError,_onDone,_zo
   _decrementPauseCount$0: function() {
     this._state = this._state - 64;
   },
-  _liblib3$_add$1: function(data) {
+  _liblib4$_add$1: function(data) {
     if (this.get$_isCanceled())
       return;
     if (this.get$_canFire())
@@ -4967,7 +4927,7 @@ _BufferingStreamSubscription: {"": "Object;_liblib3$_onData,_onError,_onDone,_zo
 
 _BufferingStreamSubscription__sendData_closure: {"": "Closure;this_0,data_1",
   call$0: function() {
-    return this.this_0._liblib3$_onData$1(this.data_1);
+    return this.this_0._liblib4$_onData$1(this.data_1);
   }
 },
 
@@ -5079,7 +5039,7 @@ _ForwardingStream: {"": "Stream;",
     return $._ForwardingStreamSubscription$(this, onData, onError, onDone, cancelOnError);
   },
   _handleData$2: function(data, sink) {
-    sink._liblib3$_add$1(data);
+    sink._liblib4$_add$1(data);
   },
   _handleError$2: function(error, sink) {
     sink._addError$1(error);
@@ -5089,14 +5049,14 @@ _ForwardingStream: {"": "Stream;",
   }
 },
 
-_ForwardingStreamSubscription: {"": "_BufferingStreamSubscription;_stream,_subscription,_liblib3$_onData,_onError,_onDone,_zone,_state,_pending",
-  _liblib3$_add$1: function(data) {
-    if (this.get$_liblib3$_isClosed())
+_ForwardingStreamSubscription: {"": "_BufferingStreamSubscription;_stream,_subscription,_liblib4$_onData,_onError,_onDone,_zone,_state,_pending",
+  _liblib4$_add$1: function(data) {
+    if (this.get$_liblib4$_isClosed())
       return;
-    $._BufferingStreamSubscription.prototype._liblib3$_add$1.call(this, data);
+    $._BufferingStreamSubscription.prototype._liblib4$_add$1.call(this, data);
   },
   _addError$1: function(error) {
-    if (this.get$_liblib3$_isClosed())
+    if (this.get$_liblib4$_isClosed())
       return;
     $._BufferingStreamSubscription.prototype._addError$1.call(this, error);
   },
@@ -5169,7 +5129,7 @@ _WhereStream: {"": "_ForwardingStream;_test,_source",
     }
 
     if (satisfies === true)
-      sink._liblib3$_add$1(inputEvent);
+      sink._liblib4$_add$1(inputEvent);
   }
 },
 
@@ -5190,7 +5150,7 @@ _MapStream: {"": "_ForwardingStream;_transform,_source",
       return;
     }
 
-    sink._liblib3$_add$1(outputEvent);
+    sink._liblib4$_add$1(outputEvent);
   }
 },
 
@@ -5203,7 +5163,7 @@ _SkipStream: {"": "_ForwardingStream;_remaining,_source",
       this._remaining = t2.$sub(t1, 1);
       return;
     }
-    return sink._liblib3$_add$1(inputEvent);
+    return sink._liblib4$_add$1(inputEvent);
   }
 },
 
@@ -6171,15 +6131,6 @@ ListMixin: {"": "Object;",
     this.set$length(receiver, $.$add$ns(t1, 1));
     this.$indexSet(receiver, t1, element);
   },
-  addAll$1: function(receiver, iterable) {
-    var t1, element, t2;
-    for (t1 = $.get$iterator$ax(iterable); t1.moveNext$0() === true;) {
-      element = t1.get$current();
-      t2 = this.get$length(receiver);
-      this.set$length(receiver, $.$add$ns(t2, 1));
-      this.$indexSet(receiver, t2, element);
-    }
-  },
   remove$1: function(receiver, element) {
     var t1, i;
     if (typeof receiver !== "string" && (typeof receiver !== "object" || receiver === null || receiver.constructor !== Array && !$.isJsIndexable(receiver, receiver[$.dispatchPropertyName])))
@@ -6924,7 +6875,7 @@ Error_StackTraceOnThrow3: {"": "Error+StackTraceOnThrow;"},
 
 Error_StackTraceOnThrow4: {"": "Error+StackTraceOnThrow;"},
 
-NoSuchMethodError: {"": "Error_StackTraceOnThrow4;_liblib4$_receiver,_memberName,_arguments,_namedArguments,_existingArgumentNames",
+NoSuchMethodError: {"": "Error_StackTraceOnThrow4;_liblib1$_receiver,_memberName,_arguments,_namedArguments,_existingArgumentNames",
   toString$0: function(_) {
     var t1, t2, t3, t4;
     t1 = {};
@@ -6944,7 +6895,7 @@ NoSuchMethodError: {"": "Error_StackTraceOnThrow4;_liblib4$_receiver,_memberName
     }
     t2 = this._namedArguments;
     t2.forEach$1(t2, new $.NoSuchMethodError_toString_closure(t1));
-    return "NoSuchMethodError : method not found: '" + $.S(this._memberName) + "'\nReceiver: " + $.Error_safeToString(this._liblib4$_receiver) + "\nArguments: [" + $.S(t1.sb_0) + "]";
+    return "NoSuchMethodError : method not found: '" + $.S(this._memberName) + "'\nReceiver: " + $.Error_safeToString(this._liblib1$_receiver) + "\nArguments: [" + $.S(t1.sb_0) + "]";
   }
 },
 
@@ -7244,11 +7195,6 @@ _ChildrenElementList: {"": "ListBase;_element,_childElements",
   get$iterator: function(_) {
     return $.get$iterator$ax(this.toList$0(this));
   },
-  addAll$1: function(_, iterable) {
-    var t1, t2;
-    for (t1 = $.get$iterator$ax(typeof iterable === "object" && iterable !== null && !!$.getInterceptor(iterable).$is_ChildNodeListLazy ? $.List_List$from(iterable, true) : iterable), t2 = this._element; t1.moveNext$0() === true;)
-      t2.appendChild(t1.get$current());
-  },
   sort$1: function(_, compare) {
     throw $.wrapException($.UnsupportedError$("Cannot sort element lists"));
   },
@@ -7295,22 +7241,9 @@ _ChildNodeListLazy: {"": "ListBase;_this",
     this._this.appendChild(value);
   },
   addAll$1: function(_, iterable) {
-    var t1, t2, len, i;
-    if (typeof iterable === "object" && iterable !== null && !!$.getInterceptor(iterable).$is_ChildNodeListLazy) {
-      t1 = iterable._this;
-      t2 = this._this;
-      if (t1 !== t2) {
-        len = iterable.get$length(iterable);
-        if (typeof len !== "number")
-          throw $.iae(len);
-        i = 0;
-        for (; i < len; ++i)
-          t2.appendChild(t1.firstChild);
-      }
-      return;
-    }
-    for (t1 = $.get$iterator$ax(iterable), t2 = this._this; t1.moveNext$0() === true;)
-      t2.appendChild(t1.get$current());
+    var t1, t2;
+    for (t1 = $.JSArray_methods.get$iterator(iterable), t2 = this._this; t1.moveNext$0();)
+      t2.appendChild(t1._liblib$_current);
   },
   insert$2: function(_, index, node) {
     var t1, t2, t3;
@@ -7371,7 +7304,6 @@ _ChildNodeListLazy: {"": "ListBase;_this",
       throw $.ioore(index);
     return t1[index];
   },
-  $is_ChildNodeListLazy: true,
   $asList: function () { return [$.Node]; }
 },
 
@@ -7391,9 +7323,9 @@ Storage_values_closure: {"": "Closure;values_0",
   }
 },
 
-_EventStream: {"": "Stream;_liblib1$_target,_eventType,_useCapture",
+_EventStream: {"": "Stream;_liblib2$_target,_eventType,_useCapture",
   listen$4$cancelOnError$onDone$onError: function(onData, cancelOnError, onDone, onError) {
-    return $._EventStreamSubscription$(this._liblib1$_target, this._eventType, onData, this._useCapture);
+    return $._EventStreamSubscription$(this._liblib2$_target, this._eventType, onData, this._useCapture);
   },
   listen$3$onDone$onError: function(onData, onDone, onError) {
     return this.listen$4$cancelOnError$onDone$onError(onData, null, onDone, onError);
@@ -7403,16 +7335,16 @@ _EventStream: {"": "Stream;_liblib1$_target,_eventType,_useCapture",
   }
 },
 
-_EventStreamSubscription: {"": "StreamSubscription;_pauseCount,_liblib1$_target,_eventType,_onData,_useCapture",
+_EventStreamSubscription: {"": "StreamSubscription;_pauseCount,_liblib2$_target,_eventType,_onData,_useCapture",
   cancel$0: function() {
     if (this.get$_canceled())
       return;
     this._unlisten$0();
-    this._liblib1$_target = null;
+    this._liblib2$_target = null;
     this._onData = null;
   },
   get$_canceled: function() {
-    return this._liblib1$_target == null;
+    return this._liblib2$_target == null;
   },
   pause$1: function(_, resumeSignal) {
     if (this.get$_canceled())
@@ -7434,12 +7366,12 @@ _EventStreamSubscription: {"": "StreamSubscription;_pauseCount,_liblib1$_target,
   },
   _tryResume$0: function() {
     if (this._onData != null && !this.get$isPaused())
-      $.$$dom_addEventListener$3$x(this._liblib1$_target, this._eventType, this._onData, this._useCapture);
+      $.$$dom_addEventListener$3$x(this._liblib2$_target, this._eventType, this._onData, this._useCapture);
   },
   _unlisten$0: function() {
     var t1 = this._onData;
     if (t1 != null)
-      $.$$dom_removeEventListener$3$x(this._liblib1$_target, this._eventType, t1, this._useCapture);
+      $.$$dom_removeEventListener$3$x(this._liblib2$_target, this._eventType, t1, this._useCapture);
   },
   _EventStreamSubscription$4: function(_target, _eventType, _onData, _useCapture) {
     this._tryResume$0();
@@ -7461,9 +7393,6 @@ ImmutableListMixin: {"": "Object;",
   },
   add$1: function(receiver, value) {
     throw $.wrapException(new $.UnsupportedError("Cannot add to immutable List."));
-  },
-  addAll$1: function(receiver, iterable) {
-    throw $.wrapException($.UnsupportedError$("Cannot add to immutable List."));
   },
   sort$1: function(receiver, compare) {
     throw $.wrapException($.UnsupportedError$("Cannot sort immutable List."));
@@ -7570,14 +7499,6 @@ _ChildNodeListLazy$: function(_this) {
   return new $._ChildNodeListLazy(_this);
 },
 
-TableElement_TableElement: function() {
-  return $.document().createElement("table");
-},
-
-TableRowElement_TableRowElement: function() {
-  return $.document().createElement("tr");
-},
-
 _EventStream$: function(_target, _eventType, _useCapture) {
   return new $._EventStream(_target, _eventType, _useCapture);
 },
@@ -7646,7 +7567,7 @@ TypedData_ListMixin: {"": "TypedData+ListMixin;", $isList: true, $asList: functi
 
 TypedData_ListMixin_FixedLengthListMixin: {"": "TypedData_ListMixin+FixedLengthListMixin;"}}],
 ["flashcards", "flashcards.dart", , {
-Card: {"": "Object;english<,farsi<,latinFarsi<,englishScore@,farsiScore@,latinFarsiScore@,tags",
+Card: {"": "Object;english<,farsi<,phonetic<,englishScore@,farsiScore@,phoneticScore@,tags",
   compareEnglishScore$1: function(other) {
     var t1, t2;
     t1 = this.englishScore;
@@ -7669,10 +7590,10 @@ Card: {"": "Object;english<,farsi<,latinFarsi<,englishScore@,farsiScore@,latinFa
     else
       return 1;
   },
-  compareLatinFarsiScore$1: function(other) {
+  comparephoneticScore$1: function(other) {
     var t1, t2;
-    t1 = this.latinFarsiScore;
-    t2 = other.get$latinFarsiScore();
+    t1 = this.phoneticScore;
+    t2 = other.get$phoneticScore();
     if (t1 < t2)
       return -1;
     else if (t1 === t2)
@@ -7681,20 +7602,7 @@ Card: {"": "Object;english<,farsi<,latinFarsi<,englishScore@,farsiScore@,latinFa
       return 1;
   },
   toString$0: function(_) {
-    return this.english + "|" + this.farsi + "|" + this.latinFarsi + "|" + $.S(this.englishScore) + "|" + $.S(this.farsiScore) + "|" + $.S(this.latinFarsiScore) + "|" + this.tagsAsCSV$0();
-  },
-  toTableRowElement$0: function() {
-    var row, t1;
-    row = $.TableRowElement_TableRowElement();
-    t1 = $.getInterceptor$x(row);
-    $.set$innerHtml$x(t1.addCell$0(row), "<input type=\"text\" name=\"english\" size=\"6\" placeholder=\"english\" value=\"" + this.english + "\">\n");
-    $.set$innerHtml$x(t1.addCell$0(row), "<input type=\"text\" name=\"farsi\" size= \"6\" placeholder=\"farsi\" value=\"" + this.farsi + "\">\n");
-    $.set$innerHtml$x(t1.addCell$0(row), "<input type=\"text\" name=\"latinFarsi\" size= \"6\" placeholder=\"Latin Farsi\" value=\"" + this.latinFarsi + "\">\n");
-    $.set$innerHtml$x(t1.addCell$0(row), "<input type=\"text\" name=\"englishScore\" size= \"1\" placeholder=\"English Score\" value=\"" + $.S(this.englishScore) + "\">\n");
-    $.set$innerHtml$x(t1.addCell$0(row), "<input type=\"text\" name=\"farsiScore\" size= \"1\" placeholder=\"Farsi Score\" value=\"" + $.S(this.farsiScore) + "\">\n");
-    $.set$innerHtml$x(t1.addCell$0(row), "<input type=\"text\" name=\"latinFarsiScore\" size= \"1\" placeholder=\"Latin Farsi Score\" value=\"" + $.S(this.latinFarsiScore) + "\">\n");
-    $.set$innerHtml$x(t1.addCell$0(row), "<input type=\"text\" name=\"tags\" size= \"20\" placeholder=\"Filter tags\" value=\"" + this.tagsAsCSV$0() + "\">\n");
-    return row;
+    return this.english + "|" + this.farsi + "|" + this.phonetic + "|" + $.S(this.englishScore) + "|" + $.S(this.farsiScore) + "|" + $.S(this.phoneticScore) + "|" + this.tagsAsCSV$0();
   },
   hasTags$1: function(tagsToFilter) {
     var t1, t2, tag;
@@ -7740,6 +7648,7 @@ DataManager: {"": "Object;localStorage,cards,displayErrorFunc",
     this.cards.push($.Card$("ze", "\ufeaf", "ze", 1, 1, 1, ["letter"]));
     this.cards.push($.Card$("zhe", "\u0698", "zhe", 1, 1, 1, ["letter"]));
     this.cards.push($.Card$("sin", "\ufeb1", "sin", 1, 1, 1, ["letter"]));
+    this.cards.push($.Card$("shin", "\ufeb5", "shin", 1, 1, 1, ["letter"]));
     this.cards.push($.Card$("saad", "\ufeb9", "saad", 1, 1, 1, ["letter"]));
     this.cards.push($.Card$("zaad", "\ufebd", "zaad", 1, 1, 1, ["letter"]));
     this.cards.push($.Card$("ta", "\ufec1", "ta", 1, 1, 1, ["letter"]));
@@ -7760,12 +7669,24 @@ DataManager: {"": "Object;localStorage,cards,displayErrorFunc",
     this.cards.push($.Card$("1", "\u06f1", "yek", 1, 1, 1, ["digit"]));
     this.cards.push($.Card$("2", "\u06f2", "do", 1, 1, 1, ["digit"]));
     this.cards.push($.Card$("3", "\u06f3", "seh", 1, 1, 1, ["digit"]));
-    this.cards.push($.Card$("4", "\u06f4", "chahaar", 1, 1, 1, ["digit"]));
+    this.cards.push($.Card$("4", "\u06f4", "char", 1, 1, 1, ["digit"]));
     this.cards.push($.Card$("5", "\u06f5", "panj", 1, 1, 1, ["digit"]));
-    this.cards.push($.Card$("6", "\u06f6", "shesh", 1, 1, 1, ["digit"]));
+    this.cards.push($.Card$("6", "\u06f6", "sheesh", 1, 1, 1, ["digit"]));
     this.cards.push($.Card$("7", "\u06f7", "haft", 1, 1, 1, ["digit"]));
     this.cards.push($.Card$("8", "\u06f8", "hasht", 1, 1, 1, ["digit"]));
     this.cards.push($.Card$("9", "\u06f9", "noh", 1, 1, 1, ["digit"]));
+    this.cards.push($.Card$("10", "\u062f\u0647", "dah", 1, 1, 1, ["digit"]));
+    this.cards.push($.Card$("11", "\u06cc\u0627\u0632\u062f\u0647", "yazdah", 1, 1, 1, ["digit", "number"]));
+    this.cards.push($.Card$("12", "\u062f\u0648\u0627\u0632\u062f\u0647", "davaazdah", 1, 1, 1, ["digit", "number"]));
+    this.cards.push($.Card$("13", "\u0633\u06cc\u0632\u062f\u0647", "sizdah", 1, 1, 1, ["digit", "number"]));
+    this.cards.push($.Card$("14", "\u0686\u0647\u0627\u0631\u062f\u0647", "chardah", 1, 1, 1, ["digit", "number"]));
+    this.cards.push($.Card$("15", "\u067e\u0627\u0646\u0632\u062f\u0647", "panzdah", 1, 1, 1, ["digit", "number"]));
+    this.cards.push($.Card$("16", "\u0634\u0627\u0646\u0632\u062f\u0647", "shanzdah", 1, 1, 1, ["digit", "number"]));
+    this.cards.push($.Card$("17", "\u0647\u0641\u062f\u0647", "hefdah", 1, 1, 1, ["digit", "number"]));
+    this.cards.push($.Card$("18", "\u0647\u062c\u062f\u0647", "hejdah", 1, 1, 1, ["digit", "number"]));
+    this.cards.push($.Card$("19", "\u0646\u0648\u0632\u062f\u0647", "noozdah", 1, 1, 1, ["digit", "number"]));
+    this.cards.push($.Card$("20", "\u0628\u06cc\u0633\u062a", "bist", 1, 1, 1, ["digit", "number"]));
+    this.cards.push($.Card$("21", "\u0628\u06cc\u0633\u062a \u0648 \u06cc\u06a9", "bist o yek", 1, 1, 1, ["digit", "number"]));
     this.cards.push($.Card$("water", "\u0622\u0628", "ab", 1, 1, 1, ["noun", "food"]));
     this.cards.push($.Card$("juice", "\u0622\u0628\u0645\u06cc\u0648\u0647", "abmiveh", 1, 1, 1, ["noun", "food"]));
     this.cards.push($.Card$("beer", "\u0622\u0628\u062c\u0648", "abjo", 1, 1, 1, ["noun", "food"]));
@@ -7782,6 +7703,35 @@ DataManager: {"": "Object;localStorage,cards,displayErrorFunc",
     this.cards.push($.Card$("duck", "\u0627\u0631\u062f\u06a9", "ordak", 1, 1, 1, ["noun", "animal"]));
     this.cards.push($.Card$("cow", "\u06af\u0627\u0648", "gav", 1, 1, 1, ["noun", "animal"]));
     this.cards.push($.Card$("fish", "\u0645\u0627\u0647\u06cc", "mahi", 1, 1, 1, ["noun", "animal"]));
+    this.cards.push($.Card$("Hi", "\u0633\u0644\u0627\u0645", "salam", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Good morning", "\u0635\u0628\u062d \u0628\u062e\u06cc", "Sobh Be kheyr", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Good evening", "\u0639\u0635\u0631 \u0628\u062e\u06cc\u0631", "Asr be kheyr", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Good night", "\u0634\u0628 \u0628\u062e\u06cc\u0631", "Shab be kheyr", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Welcome", "\u062e\u0648\u0634 \u0622\u0645\u062f\u06cc\u062f", "Khosh Amadid", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("How are you?", "\u062d\u0627\u0644 \u0634\u0645\u0627 \u0686\u0637\u0648\u0631 \u0647\u0633\u062a", "Haleh shoma chetor hast?", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Thank you", "\u0645\u0645\u0646\u0648\u0646", "Mamnoon", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("You're welcome", "\u062e\u0648\u0627\u0647\u0634 \u0645\u06cc\u06a9\u0646\u0645", "Khahesh mikonam", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("See you later", "\u0628\u0639\u062f\u0623 \u0645\u06cc\u0628\u06cc\u0646\u0645\u062a", "Ba\u2019adan mibinamet", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Nice to meet you", "\u0627\u0632 \u0645\u0644\u0627\u0642\u0627\u062a \u0634\u0645\u0627 \u062e\u0648\u0634 \u0648\u0642\u062a\u0645", "Az molaghat e sham khosh vaghtam", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Good luck", "\u0645\u0648\u0641\u0642 \u0628\u0627\u0634\u06cc\u062f", "Mo\u2019afagh bashed", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Congratulations", "\u062a\u0628\u0631\u06cc\u06a9 \u0645\u06cc \u06af\u0648\u06cc\u0645", "Tabrik migoyam", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Sorry", "\u0628\u0628\u062e\u0634\u06cc\u062f", "Bebakhshid", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("No Problem", "\u0645\u0634\u06a9\u0644\u06cc \u0646\u06cc\u0633\u062a", "Moshkeli nist", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("I need to practice my Persian", "\u0645\u0646 \u0628\u0627\u06cc\u062f \u0641\u0627\u0631\u0633\u06cc \u0631\u0648 \u0628\u06cc\u0634\u062a\u0631 \u062a\u0645\u0631\u06cc\u0646 \u06a9\u0646\u0645", "Man bayad farsi ro bishtar tamrin konam", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("What?", "\u0686\u06cc\u061f", "Chi?", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Where?", "\u06a9\u062c\u0627\u061f", "Koja?", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Why?", "\u0686\u0631\u0627\u061f", "Chara?", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("I love you", "\u062f\u0648\u0633\u062a \u062f\u0627\u0631\u0645", "Doset daram", 1, 1, 1, ["phrase"]));
+    this.cards.push($.Card$("Black", "\u0633\u06cc\u0627\u0647", "seeyah", 1, 1, 1, ["adjective", "colour"]));
+    this.cards.push($.Card$("Blue", "\u0622\u0628\u06cc", "abi", 1, 1, 1, ["adjective", "colour"]));
+    this.cards.push($.Card$("Brown", "\u0642\u0647\u0648\u0647 \u0627\u06cc", "gah-ve-yee", 1, 1, 1, ["adjective", "colour"]));
+    this.cards.push($.Card$("Grey", "\u062e\u0627\u06a9\u0633\u0631\u06cc", "khakestari", 1, 1, 1, ["adjective", "colour"]));
+    this.cards.push($.Card$("Green", "\u0633\u0628\u0632", "sabz", 1, 1, 1, ["adjective", "colour"]));
+    this.cards.push($.Card$("Orange", "\u0646\u0627\u0631\u0646\u062c\u06cc", "narenji", 1, 1, 1, ["adjective", "colour"]));
+    this.cards.push($.Card$("Purple", "\u0627\u0631\u063a\u0648\u0648\u0646\u06cc", "arghavani", 1, 1, 1, ["adjective", "colour"]));
+    this.cards.push($.Card$("Red", "\u0642\u0631\u0645\u0632", "ghermez", 1, 1, 1, ["adjective", "colour"]));
+    this.cards.push($.Card$("White", "\u0633\u0641\u064a\u062f", "safeed", 1, 1, 1, ["adjective", "colour"]));
+    this.cards.push($.Card$("Yellow", "\u0632\u0631\u062f", "zard", 1, 1, 1, ["adjective", "colour"]));
   },
   DataManager$1: function(displayErrorFunc) {
     this.cards = $.List_List(null);
@@ -7797,15 +7747,17 @@ DataManager_getFilteredData_closure: {"": "Closure;tags_0",
   }
 },
 
-FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,currentCard,englishRadioButton,farsiRadioButton,latinFarsiRadioButton,tagsInput,revealButton,rightButton,wrongButton,cardDisplayArea,errorParagraph,toggleDisplayDataAnchor,seedDataAnchor,clearDataAnchor,dataDisplayArea",
+FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,currentCard,englishRadioButton,farsiRadioButton,phoneticRadioButton,tagsInput,revealButton,rightButton,wrongButton,cardDisplayArea,errorParagraph,toggleDisplayDataAnchor,seedDataAnchor,clearDataAnchor,dataDisplayArea,loadingPanel",
   run$0: function() {
     this.initialize$0();
     this.tagsChanged$1($.Event_Event("MouseEvent", true, true));
     this.englishSelected$1($.Event_Event("MouseEvent", true, true));
+    this.loadingPanel.hidden = true;
     this.showNextCard$0();
   },
   initialize$0: function() {
     var t1, t2;
+    this.loadingPanel = $.query("#loadingPanel");
     t1 = $.query("input[value=\"english\"]");
     t2 = $.getInterceptor$x(t1);
     t2.get$onClick(t1).listen$1(this.get$englishSelected());
@@ -7814,9 +7766,9 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
     t1 = $.query("input[value=\"farsi\"]");
     $.get$onClick$x(t1).listen$1(this.get$farsiSelected());
     this.farsiRadioButton = t1;
-    t1 = $.query("input[value=\"latinFarsi\"]");
-    $.get$onClick$x(t1).listen$1(this.get$latinFarsiSelected());
-    this.latinFarsiRadioButton = t1;
+    t1 = $.query("input[value=\"phonetic\"]");
+    $.get$onClick$x(t1).listen$1(this.get$phoneticSelected());
+    this.phoneticRadioButton = t1;
     t1 = $.query("#tags");
     $.get$onChange$x(t1).listen$1(this.get$tagsChanged());
     this.tagsInput = t1;
@@ -7834,9 +7786,6 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
     this.cardDisplayArea = $.query("#cardDisplayArea");
     this.errorParagraph = $.query("#error");
     this.dataManager = $.DataManager$(this.get$displayError());
-    t1 = $.query("#toggleDisplayData");
-    $.get$onClick$x(t1).listen$1(this.get$displayData());
-    this.toggleDisplayDataAnchor = t1;
     this.dataDisplayArea = $.query("#dataDisplayArea");
   },
   displayError$1: function(errorMessage) {
@@ -7849,6 +7798,7 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
     $.print("English selected");
     this.selectedSource = 0;
     $.sort$1$ax(this.workingDictionary, new $.FlashCardsApp_englishSelected_closure());
+    this.showNextCard$0();
   },
   get$englishSelected: function() {
     return new $.BoundClosure$1(this, "englishSelected$1", null);
@@ -7857,17 +7807,19 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
     $.print("Farsi selected");
     this.selectedSource = 1;
     $.sort$1$ax(this.workingDictionary, new $.FlashCardsApp_farsiSelected_closure());
+    this.showNextCard$0();
   },
   get$farsiSelected: function() {
     return new $.BoundClosure$1(this, "farsiSelected$1", null);
   },
-  latinFarsiSelected$1: function(e) {
-    $.print("LatinFarsi selected");
+  phoneticSelected$1: function(e) {
+    $.print("phonetic selected");
     this.selectedSource = 2;
-    $.sort$1$ax(this.workingDictionary, new $.FlashCardsApp_latinFarsiSelected_closure());
+    $.sort$1$ax(this.workingDictionary, new $.FlashCardsApp_phoneticSelected_closure());
+    this.showNextCard$0();
   },
-  get$latinFarsiSelected: function() {
-    return new $.BoundClosure$1(this, "latinFarsiSelected$1", null);
+  get$phoneticSelected: function() {
+    return new $.BoundClosure$1(this, "phoneticSelected$1", null);
   },
   tagsChanged$1: function(e) {
     var t1, t2;
@@ -7888,7 +7840,7 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
     $.preventDefault$0$x(e);
     t1 = this.cardDisplayArea;
     t2 = this.currentCard;
-    $.set$innerHtml$x(t1, t2.get$english() + "&emsp;&emsp;&emsp;" + t2.get$farsi() + "&emsp;&emsp;&emsp;" + t2.get$latinFarsi());
+    $.set$innerHtml$x(t1, t2.get$english() + "<br/>" + t2.get$farsi() + "<br/>" + t2.get$phonetic());
     $.set$hidden$x(this.revealButton, true);
     $.set$hidden$x(this.rightButton, false);
     $.set$hidden$x(this.wrongButton, false);
@@ -7898,9 +7850,6 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
   },
   clickRightButton$1: function(e) {
     $.preventDefault$0$x(e);
-    $.set$hidden$x(this.revealButton, false);
-    $.set$hidden$x(this.rightButton, true);
-    $.set$hidden$x(this.wrongButton, true);
     this.updateCard$1(1.4);
     this.showNextCard$0();
   },
@@ -7909,9 +7858,6 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
   },
   clickWrongButton$1: function(e) {
     $.preventDefault$0$x(e);
-    $.set$hidden$x(this.revealButton, false);
-    $.set$hidden$x(this.rightButton, true);
-    $.set$hidden$x(this.wrongButton, true);
     this.updateCard$1(0.5);
     this.showNextCard$0();
   },
@@ -7969,9 +7915,9 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
         }
         ++i;
       }
-    } else if ($.get$checked$x(this.latinFarsiRadioButton) === true) {
+    } else if ($.get$checked$x(this.phoneticRadioButton) === true) {
       t1 = this.currentCard;
-      t1.set$latinFarsiScore(t1.get$latinFarsiScore() * scoreAdjustmentFactor);
+      t1.set$phoneticScore(t1.get$phoneticScore() * scoreAdjustmentFactor);
       i = 0;
       while (true) {
         t1 = $.get$length$asx(this.workingDictionary);
@@ -7979,7 +7925,7 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
           throw $.iae(t1);
         if (!(i < t1))
           break;
-        if (this.currentCard.get$latinFarsiScore() <= $.$index$asx(this.workingDictionary, i).get$latinFarsiScore()) {
+        if (this.currentCard.get$phoneticScore() <= $.$index$asx(this.workingDictionary, i).get$phoneticScore()) {
           $.insert$2$ax(this.workingDictionary, i, this.currentCard);
           break;
         } else {
@@ -7996,6 +7942,9 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
     }
   },
   showNextCard$0: function() {
+    $.set$hidden$x(this.revealButton, false);
+    $.set$hidden$x(this.rightButton, true);
+    $.set$hidden$x(this.wrongButton, true);
     if ($.$eq($.get$length$asx(this.workingDictionary), 0))
       return;
     var nextInt = this.random.nextInt$1($.min($.$sub$n($.get$length$asx(this.workingDictionary), 1), 4));
@@ -8005,22 +7954,8 @@ FlashCardsApp: {"": "Object;dataManager,workingDictionary,random,selectedSource,
       this.cardDisplayArea.textContent = this.currentCard.get$english();
     else if ($.get$checked$x(this.farsiRadioButton) === true)
       this.cardDisplayArea.textContent = this.currentCard.get$farsi();
-    else if ($.get$checked$x(this.latinFarsiRadioButton) === true)
-      this.cardDisplayArea.textContent = this.currentCard.get$latinFarsi();
-  },
-  displayData$1: function(e) {
-    var table, t1, t2;
-    $.preventDefault$0$x(e);
-    table = $.TableElement_TableElement();
-    $.forEach$1$ax(this.workingDictionary, new $.FlashCardsApp_displayData_closure(table));
-    $.set$innerHtml$x(this.dataDisplayArea, "");
-    this.dataDisplayArea.appendChild(table);
-    t1 = this.dataDisplayArea;
-    t2 = $.getInterceptor$x(t1);
-    t2.set$innerHtml(t1, $.$add$ns(t2.get$innerHtml(t1), "Count: " + $.S($.get$length$asx(this.workingDictionary))));
-  },
-  get$displayData: function() {
-    return new $.BoundClosure$1(this, "displayData$1", null);
+    else if ($.get$checked$x(this.phoneticRadioButton) === true)
+      this.cardDisplayArea.textContent = this.currentCard.get$phonetic();
   }
 },
 
@@ -8036,20 +7971,14 @@ FlashCardsApp_farsiSelected_closure: {"": "Closure;",
   }
 },
 
-FlashCardsApp_latinFarsiSelected_closure: {"": "Closure;",
+FlashCardsApp_phoneticSelected_closure: {"": "Closure;",
   call$2: function(e, e2) {
-    return e.compareLatinFarsiScore$1(e2);
+    return e.comparephoneticScore$1(e2);
   }
 },
 
-FlashCardsApp_displayData_closure: {"": "Closure;table_0",
-  call$1: function(e) {
-    return this.table_0.appendChild(e.toTableRowElement$0());
-  }
-},
-
-Card$: function(english, farsi, latinFarsi, englishScore, farsiScore, latinFarsiScore, tags) {
-  return new $.Card(english, farsi, latinFarsi, englishScore, farsiScore, latinFarsiScore, tags);
+Card$: function(english, farsi, phonetic, englishScore, farsiScore, phoneticScore, tags) {
+  return new $.Card(english, farsi, phonetic, englishScore, farsiScore, phoneticScore, tags);
 },
 
 DataManager$: function(displayErrorFunc) {
@@ -8063,7 +7992,7 @@ main: function() {
 },
 
 FlashCardsApp$: function() {
-  return new $.FlashCardsApp(null, [], $.Random_Random(null), 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
+  return new $.FlashCardsApp(null, [], $.Random_Random(null), 0, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
 }}],
 ["html_common", "dart:html_common", , {
 FilteredElementList: {"": "ListBase;_node,_childNodes",
@@ -8374,9 +8303,6 @@ $.$tdiv$n = function(receiver, a0) {
 };
 $.add$1$ax = function(receiver, a0) {
   return $.getInterceptor$ax(receiver).add$1(receiver, a0);
-};
-$.addAll$1$ax = function(receiver, a0) {
-  return $.getInterceptor$ax(receiver).addAll$1(receiver, a0);
 };
 $.compareTo$1$ns = function(receiver, a0) {
   return $.getInterceptor$ns(receiver).compareTo$1(receiver, a0);
