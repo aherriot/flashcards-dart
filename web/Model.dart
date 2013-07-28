@@ -18,7 +18,7 @@ class DataManager {
     }
     else
     {      
-      loadFromLocalStorage();
+      loadData();
     }
   }
   
@@ -38,11 +38,26 @@ class DataManager {
     cards.clear();
   }
   
-  void loadFromLocalStorage() {
+  void loadData() {
     cards.clear();
     localStorage.forEach((String key , String value){
       cards.add(new Card.fromString(value));
     });
+  }
+  
+  void loadCard(Card card)
+  {
+    String key = card.getKey();
+    
+    if(localStorage.containsKey(key))
+    {
+      Card localStorageCard = new Card.fromString(localStorage[key]);
+      cards.add(localStorageCard);
+    }
+    else {
+      localStorage[key] = card.toString();
+      cards.add(card);
+    }
   }
   
   void seedData() {
@@ -157,7 +172,7 @@ class DataManager {
 //    cards.add(new Card("Yellow", "زرد", "zard", 1.0, 1.0, 1.0, ["adjective", "colour"]));
 //    
     cards.forEach((Card card){
-      localStorage[card.english] = card.toString();
+      localStorage[card.getKey()] = card.toString();
     });
     
   }

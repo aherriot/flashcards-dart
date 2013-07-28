@@ -4,7 +4,7 @@ import 'dart:html';
 import 'dart:math' as Math;
 
 part 'Card.dart';
-part 'DataManager.dart';
+part 'Model.dart';
 
 void main() {  
   FlashCardsApp app = new FlashCardsApp();

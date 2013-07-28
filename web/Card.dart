@@ -109,5 +109,10 @@ class Card
     
     return tags.join(",");
   }
+  
+  String getKey() {
+    return "Card:" + english;
+  }
+  
 
 }
