@@ -1,8 +1,5 @@
 part of flashcards;
 
-
-
-
 abstract class ModelListener {
   modelDisplayCard();
   modelDisplayError(String error);
@@ -35,14 +32,8 @@ class Model {
     random = new Math.Random();
     listeners = new List<ModelListener>();
     
-    if(localStorage.isEmpty)
-    {
-      seedData();
-    }
-    else
-    {      
-      loadData();
-    }
+    loadData();
+   
   }
   
   void addListener(ModelListener listener) {
@@ -128,24 +119,27 @@ class Model {
   }
   
   void loadData() {
+    
     allCards.clear();
+    
+    //load everything from local storage first
     localStorage.forEach((String key , String value){
       allCards.add(new Card.fromString(value));
     });
     
-    changeTags("");
-  }
-    
-  void seedData() {
-    allCards.clear();
-    
+    //add words from the seed data that are not already in localStorage
     List<String> seedData = Data.getSeedData();
-
-    allCards.forEach((Card card){
-      localStorage[card.getKey()] = card.toString();
-    });
+    for(String cardString in seedData) {
+      
+      Card newCard = new Card.fromString(cardString);
+      if(!allCards.contains(newCard)) {
+        allCards.add(newCard);       
+        localStorage[newCard.getKey()] = cardString;
+      }
+      
+    }
     
-    
+    changeTags("");
   }
   
   void updateCardScore(double scoreAdjustmentFactor) {
