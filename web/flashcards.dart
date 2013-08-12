@@ -9,6 +9,7 @@ part 'Model.dart';
 part 'Card.dart';
 part 'View.dart';
 part 'Controller.dart';
+part 'Data.dart';
 
 void main() {  
   FlashCardsApp app = new FlashCardsApp();
