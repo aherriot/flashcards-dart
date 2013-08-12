@@ -26,7 +26,7 @@ class Card
     phoneticScore = double.parse(dataItems[5]);
     
     tags = dataItems[6].split(",");
-    print( english + " : "+ tags.toString());
+    //print( english + " : "+ tags.toString());
   }
   
   int compareEnglishScore(Card other) {
@@ -112,6 +112,24 @@ class Card
   
   String getKey() {
     return "Card:" + english;
+  }
+  
+  //hashCode function inspired by the Dart documentation
+  int get hashCode {
+    int result = 17;
+    result = 37 * result + english.hashCode;
+    result = 37 * result + farsi.hashCode;
+    result = 37 * result + phonetic.hashCode;
+    return result;
+  }
+  
+  bool operator==(other) {
+    
+    return (
+      other.english == english && 
+      other.farsi == farsi &&
+      other.phonetic == phonetic
+    );
   }
   
 

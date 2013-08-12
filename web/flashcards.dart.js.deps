@@ -108,5 +108,7 @@ file:///C:/Program Files/Dart/dart-sdk/lib/web_audio/dart2js/web_audio_dart2js.d
 file:///C:/Program Files/Dart/dart-sdk/lib/web_gl/dart2js/web_gl_dart2js.dart
 file:///C:/Program Files/Dart/dart-sdk/lib/web_sql/dart2js/web_sql_dart2js.dart
 file:///C:/xampp/htdocs/flashcards/web/Card.dart
-file:///C:/xampp/htdocs/flashcards/web/DataManager.dart
+file:///C:/xampp/htdocs/flashcards/web/Controller.dart
+file:///C:/xampp/htdocs/flashcards/web/Model.dart
+file:///C:/xampp/htdocs/flashcards/web/View.dart
 file:///C:/xampp/htdocs/flashcards/web/flashcards.dart
