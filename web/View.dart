@@ -45,35 +45,35 @@ class View {
   }
   
   void initialize() {
-   loadingPanel = query("#loadingPanel");
+   loadingPanel = querySelector("#loadingPanel");
    
-   englishRadioButton = query("input[value=\"english\"]")
+   englishRadioButton = querySelector("input[value=\"english\"]")
       ..onClick.listen(sourceChanged)
       ..checked = true;
     
-    farsiRadioButton = query("input[value=\"farsi\"]")
+    farsiRadioButton = querySelector("input[value=\"farsi\"]")
       ..onClick.listen(sourceChanged);
     
-    phoneticRadioButton = query("input[value=\"phonetic\"]")
+    phoneticRadioButton = querySelector("input[value=\"phonetic\"]")
       ..onClick.listen(sourceChanged);
     
-    tagsInput = query("#tags")
+    tagsInput = querySelector("#tags")
       ..onChange.listen(tagsChanged);
     
-    checkButton = query("#checkButton")
+    checkButton = querySelector("#checkButton")
       ..onClick.listen(checkAnswer);
     
-    rightButton = query("#rightButton")
+    rightButton = querySelector("#rightButton")
       ..style.display = "none"
       ..onClick.listen(rightAnswer);
     
-    wrongButton = query("#wrongButton")
+    wrongButton = querySelector("#wrongButton")
       ..style.display = "none"
       ..onClick.listen(wrongAnswer);
     
-    cardDisplayArea = query("#cardDisplayArea");    
-    errorParagraph = query("#error");    
-    dataDisplayArea = query("#dataDisplayArea");
+    cardDisplayArea = querySelector("#cardDisplayArea");    
+    errorParagraph = querySelector("#error");    
+    dataDisplayArea = querySelector("#dataDisplayArea");
     
   }
   
