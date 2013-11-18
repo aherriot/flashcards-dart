@@ -17,16 +17,28 @@ class Card
     
     List<String> dataItems = data.split("|");
     
-    english = dataItems[0];
-    farsi = dataItems[1];
-    phonetic = dataItems[2];
+    if(dataItems.length == 7) {    
+      english = dataItems[0];
+      farsi = dataItems[1];
+      phonetic = dataItems[2];
+      
+      englishScore = double.parse(dataItems[3]);
+      farsiScore = double.parse(dataItems[4]);
+      phoneticScore = double.parse(dataItems[5]);
+      
+      tags = dataItems[6].split(",");
+      
+    } else if (dataItems.length == 4) {
+      
+      english = dataItems[0];
+      farsi = dataItems[1];
+      phonetic = dataItems[2];
+      
+      englishScore = farsiScore = phoneticScore = 1.0;
+      
+      tags = dataItems[3].split(",");
+    }
     
-    englishScore = double.parse(dataItems[3]);
-    farsiScore = double.parse(dataItems[4]);
-    phoneticScore = double.parse(dataItems[5]);
-    
-    tags = dataItems[6].split(",");
-    //print( english + " : "+ tags.toString());
   }
   
   int compareEnglishScore(Card other) {
