@@ -101,7 +101,13 @@ class Model {
     
     displayError("");
     int nextInt = 0;
-    nextInt = random.nextInt(Math.max(1, Math.min(workingCards.length-1, 1)));
+    
+    // select a number between 2 and 5
+    nextInt = random.nextInt(3) + 2;
+    
+    // bound it by the length of the workingCards list
+    nextInt = Math.min(workingCards.length-1, nextInt);
+      
     
     currentCard = workingCards[nextInt];
     print(currentCard.toString());

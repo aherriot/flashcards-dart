@@ -6901,24 +6901,6 @@ min: function(a, b) {
   return a;
 },
 
-max: function(a, b) {
-  if (a > b)
-    return a;
-  if (a < b)
-    return b;
-  if (typeof b === "number") {
-    if (typeof a === "number")
-      if (a === 0)
-        return a + b;
-    if (isNaN(b))
-      return b;
-    return a;
-  }
-  if (b === 0 && C.JSInt_methods.get$isNegative(a))
-    return b;
-  return a;
-},
-
 _Random: {"": "Object;",
   nextInt$1: function(max) {
     if (max < 0)
@@ -7061,7 +7043,6 @@ Card: {"": "Object;english<,farsi<,phonetic<,englishScore<,farsiScore<,phoneticS
         throw H.ioore(dataItems, 3);
       this.tags = J.split$1$s(dataItems[3], ",");
     }
-    P.print("loaded: " + H.S(this.english) + ", " + H.S(this.farsi));
   },
   static: {
 Card$fromString: function(data) {
@@ -7169,14 +7150,15 @@ Model: {"": "Object;localStorage,workingCards,allCards,currentCard,selectedSourc
     this.loadNextCard$0();
   },
   loadNextCard$0: function() {
-    var nextInt, t1;
+    var t1, nextInt;
     if (this.workingCards.length === 0) {
       this.currentCard = null;
       this.displayError$1("No cards match your filters.");
       return;
     }
     this.displayError$1("");
-    nextInt = this.random.nextInt$1(P.max(1, P.min(this.workingCards.length - 1, 1)));
+    t1 = this.random.nextInt$1(3);
+    nextInt = P.min(this.workingCards.length - 1, t1 + 2);
     t1 = this.workingCards;
     if (nextInt < 0 || nextInt >= t1.length)
       throw H.ioore(t1, nextInt);
