@@ -7,9 +7,9 @@ body {
   line-height: 1.2em;
   text-align: center;
   
-  //width: 400px;
+  /*width: 400px;
   //max-width: 500px;
-  //min-width 300px;
+  //min-width 300px;*/
 }
 
 h1, p {
@@ -75,8 +75,10 @@ button:active {
 
 
 #tags {
+  margin-top: 15px;
   font-size: 1.0em;
   text-align: center;
+  height: 1.5em;
 }
 
 #error {
