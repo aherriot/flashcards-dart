@@ -76,6 +76,7 @@ button:active {
 
 #tags {
   font-size: 1.0em;
+  text-align: center;
 }
 
 #error {
